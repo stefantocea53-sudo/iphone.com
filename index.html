@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>iPhone Showcase — Unofficial Concept</title>
+  <meta name="description" content="Unofficial Apple-inspired product landing page concept. Not affiliated with Apple." />
+  <style>
+    :root{
+      --bg:#f5f5f7;--card:#fff;--ink:#1d1d1f;--muted:#6e6e73;--blue:#0071e3;
+      --radius:30px;--shadow:0 8px 35px rgba(0,0,0,.06)
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none} button{font:inherit}
+    .disclosure{height:34px;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;letter-spacing:.02em;padding:0 18px;text-align:center}
+    .global-nav{height:46px;background:rgba(250,250,252,.88);backdrop-filter:saturate(180%) blur(20px);position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(0,0,0,.04)}
+    .nav-inner{max-width:1024px;height:100%;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:0 18px;font-size:12px}
+    .brand{font-weight:700;font-size:15px}.nav-links{display:flex;gap:26px;align-items:center}.nav-links a{opacity:.84}.nav-links a:hover{opacity:1}
+    .icons{display:flex;gap:18px;font-size:17px}.menu{display:none}
+    .product-nav{background:rgba(255,255,255,.92);border-bottom:1px solid #ddd;position:sticky;top:46px;z-index:45;backdrop-filter:blur(18px)}
+    .product-nav-inner{max-width:1180px;margin:auto;padding:18px 22px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
+    .product-title{font-size:28px;font-weight:700;letter-spacing:-.02em}.product-links{display:flex;gap:22px;align-items:center;font-size:12px;color:var(--muted)}
+    .buy{background:var(--blue);color:#fff;padding:8px 16px;border-radius:999px;font-weight:600}
+    .promo{background:#fff;text-align:center;padding:16px 20px;font-size:14px}.promo a{color:var(--blue)}
+
+    .hero{min-height:760px;background:#000;color:#fff;position:relative;overflow:hidden;display:flex;align-items:flex-start;justify-content:center;text-align:center}
+    .hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 76%,rgba(144,96,255,.18),transparent 28%),radial-gradient(circle at 54% 66%,rgba(255,161,108,.25),transparent 18%),linear-gradient(180deg,#000 0%,#06080d 56%,#0b0f18 100%)}
+    .hero-copy{padding-top:72px;position:relative;z-index:2}.eyebrow{font-size:22px;font-weight:600}.hero h1{font-size:86px;line-height:.95;letter-spacing:-.055em;margin:8px 0 20px}.hero p{font-size:25px;color:#c7c7cc;margin:0 0 28px}.cta-row{display:flex;justify-content:center;gap:12px}.btn{padding:12px 22px;border-radius:999px;border:1px solid var(--blue);font-weight:600}.btn.primary{background:var(--blue);color:#fff}.btn.secondary{color:#2997ff}.btn.secondary:hover{background:#0071e3;color:#fff}
+
+    .hero-phones{position:absolute;left:50%;bottom:-58px;transform:translateX(-50%);display:flex;align-items:flex-end;justify-content:center;gap:18px;z-index:2}
+    .hero-stack{position:relative;display:flex;align-items:flex-end;justify-content:center}
+    .hero-stack.center{z-index:3;transform:translateY(-16px)}
+    .hero-stack.left,.hero-stack.right{z-index:2;opacity:.97}
+
+    .phone-render{position:relative;border-radius:50px;box-shadow:0 25px 70px rgba(0,0,0,.42),0 8px 20px rgba(255,255,255,.08);flex:0 0 auto}
+    .phone-render.front{padding:7px;background:linear-gradient(145deg,#c6c7cc,#71737b 42%,#111317);overflow:hidden}
+    .phone-render.front .screen{height:100%;border-radius:42px;background:radial-gradient(circle at 50% 18%,#e0ad8b 0 12%,#56436d 32%,#0a1220 74%);position:relative;overflow:hidden;border:2px solid #060606}
+    .phone-render.front .screen:after{content:"";position:absolute;width:210px;height:210px;border-radius:50%;right:-55px;bottom:60px;background:rgba(255,255,255,.18);filter:blur(2px)}
+    .island{position:absolute;top:13px;left:50%;transform:translateX(-50%);width:92px;height:26px;background:#050505;border-radius:999px}
+
+    .phone-render.back{background:linear-gradient(145deg,#edeef3,#b1b2b8 38%,#5c5d63 68%,#23242a);display:flex;align-items:flex-start;justify-content:flex-start;padding:14px}
+    .phone-render.back .back-panel{position:absolute;inset:3px;border-radius:46px;background:linear-gradient(180deg,rgba(255,255,255,.45),rgba(255,255,255,.08));mix-blend-mode:screen;opacity:.35;pointer-events:none}
+    .camera-block{width:92px;height:92px;border-radius:28px;background:linear-gradient(145deg,rgba(255,255,255,.55),rgba(50,50,56,.28));box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 15px 24px rgba(0,0,0,.14);position:relative}
+    .lens{position:absolute;width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#4b4d55 0 12%,#17181d 42%,#050507 70%,#33343a 72%,#0f1014 100%);box-shadow:inset 0 0 0 2px rgba(255,255,255,.18),0 1px 3px rgba(0,0,0,.4)}
+    .lens.l1{left:12px;top:12px}.lens.l2{right:12px;top:12px}.lens.l3{left:12px;bottom:12px}.lens.l4{right:12px;bottom:12px}
+    .flash{position:absolute;right:15px;bottom:15px;width:14px;height:14px;border-radius:50%;background:radial-gradient(circle,#fffbd2 0 45%,#cfc49b 70%,#b3ac90 100%);box-shadow:0 0 10px rgba(255,247,177,.35)}
+    .mic{position:absolute;right:18px;top:40px;width:8px;height:8px;border-radius:50%;background:#2a2b30;box-shadow:inset 0 1px 0 rgba(255,255,255,.18)}
+    .apple-mark{position:absolute;left:50%;top:50%;transform:translate(-50%,-34%);font-size:68px;font-weight:700;color:rgba(255,255,255,.28);text-shadow:0 0 24px rgba(255,255,255,.06)}
+
+    .pm-front{width:280px;height:572px}.pm-back{width:252px;height:516px;position:absolute;right:-72px;bottom:20px;transform:rotate(8deg)}
+    .p-front{width:258px;height:528px}.p-back{width:232px;height:475px;position:absolute;left:-66px;bottom:18px;transform:rotate(-8deg)}
+    .air-front{width:230px;height:470px}.air-back{width:208px;height:425px;position:absolute;right:-58px;bottom:18px;transform:rotate(9deg)}
+
+    .finish-titanium{background:linear-gradient(145deg,#f1f1f3,#aeafb6 40%,#5a5b61 70%,#23242a)!important}
+    .finish-black{background:linear-gradient(145deg,#5c6168,#2a2d34 45%,#101216 76%,#3e4148)!important}
+    .finish-blue{background:linear-gradient(145deg,#d7dde8,#8a98ab 43%,#304357 74%,#1a2330)!important}
+    .finish-starlight{background:linear-gradient(145deg,#f6f0e6,#d6cabb 42%,#a19584 74%,#43392f)!important}
+    .finish-green{background:linear-gradient(145deg,#d9e0c9,#a7b18d 42%,#687252 72%,#2e3523)!important}
+    .finish-rose{background:linear-gradient(145deg,#f0d8e0,#cf9aaa 42%,#895868 75%,#361e26)!important}
+
+    .section{max-width:1260px;margin:0 auto;padding:110px 24px}.section.slim{padding-top:70px}.kicker{font-size:26px;color:var(--muted);font-weight:600}.section h2{font-size:58px;line-height:1.03;letter-spacing:-.045em;margin:7px 0 40px}
+    .scroller{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(320px,400px);gap:20px;overflow-x:auto;padding:6px 4px 26px;scroll-snap-type:x mandatory;scrollbar-width:none}.scroller::-webkit-scrollbar{display:none}
+    .feature-card{height:520px;border-radius:var(--radius);background:var(--card);box-shadow:var(--shadow);overflow:hidden;position:relative;padding:30px;scroll-snap-align:start}
+    .feature-card.dark{background:#000;color:#fff}.feature-card h3{font-size:28px;line-height:1.05;margin:0;max-width:300px;letter-spacing:-.025em}.label{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:700;margin-bottom:10px}.dark .label{color:#a1a1a6}
+    .art{position:absolute;left:0;right:0;bottom:0;height:65%;display:flex;align-items:flex-end;justify-content:center}
+    .mini-stack{position:relative;width:240px;height:320px;display:flex;align-items:flex-end;justify-content:center}
+    .mini-phone-front{width:155px;height:314px}.mini-phone-back{width:136px;height:276px;position:absolute;left:12px;bottom:18px;transform:rotate(-9deg)}
+    .mini-phone-front .screen{background:linear-gradient(160deg,#d6cfff 0%,#6b7fd5 38%,#263245 100%)}
+    .camera-art{height:100%;background:radial-gradient(circle at 50% 42%,#ffe3c0 0 15%,#933c35 16% 30%,#25162b 48%,#090909 76%)}
+    .privacy-art{height:100%;display:grid;place-items:center;font-size:92px;background:radial-gradient(circle at center,#555,#111 55%,#000)}
+    .sat-art{height:100%;background:radial-gradient(circle at 50% 110%,#346692 0 22%,#17334c 23% 33%,#03080d 34% 100%);position:relative}.sat-art:before{content:"✦";position:absolute;color:#fff;font-size:90px;left:50%;top:26%;transform:translate(-50%,-50%)}
+
+    .lineup{background:#fff;border-radius:var(--radius);padding:54px 36px;box-shadow:var(--shadow)}
+    .lineup-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+    .model{text-align:center}
+    .model-phone{height:290px;display:flex;align-items:center;justify-content:center;margin-bottom:26px;overflow:hidden}
+    .model-phone img{width:100%;height:100%;object-fit:contain;display:block}
+    .model h3{font-size:22px;margin:0 0 8px}
+    .model p{font-size:14px;color:var(--muted);min-height:42px}
+    .model .price{font-size:14px;margin:12px 0 18px}
+    .model .btn{display:inline-block;font-size:13px;padding:9px 16px}
+
+    .wide-card{background:#fff;border-radius:var(--radius);min-height:520px;padding:55px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;overflow:hidden;box-shadow:var(--shadow)}.wide-card h3{font-size:50px;line-height:1.02;letter-spacing:-.04em;margin:0 0 18px}.wide-card p{font-size:20px;line-height:1.45;color:var(--muted);max-width:560px}.wide-visual{height:390px;display:grid;place-items:center;position:relative}.orbit{width:340px;height:340px;border-radius:50%;background:radial-gradient(circle at 50% 45%,#fc8a63 0 8%,#733d83 26%,#223553 54%,#f1f1f3 55% 56%,transparent 57%);position:relative}.orbit:after{content:"";position:absolute;width:150px;height:300px;border-radius:34px;background:linear-gradient(145deg,#e9e9ec,#2b2b2d);left:95px;top:22px;box-shadow:0 25px 45px rgba(0,0,0,.22)}
+    footer{max-width:980px;margin:0 auto;padding:30px 22px 50px;color:#6e6e73;font-size:12px;line-height:1.5;border-top:1px solid #d2d2d7}.footer-links{display:flex;flex-wrap:wrap;gap:16px;margin-top:18px}.footer-links a{color:#424245}
+
+    @media(max-width:1100px){
+      .hero-phones{transform:translateX(-50%) scale(.82);bottom:-66px}
+    }
+    @media(max-width:900px){.nav-links{display:none}.menu{display:block}.product-links a:not(.buy){display:none}.hero{min-height:670px}.hero h1{font-size:62px}.hero p{font-size:21px}.hero-phones{transform:translateX(-50%) scale(.68);bottom:-106px}.section{padding:80px 18px}.section h2{font-size:44px}.lineup-grid{grid-template-columns:repeat(2,1fr)}.wide-card{grid-template-columns:1fr;padding:42px 28px}.wide-visual{height:320px}.wide-card h3{font-size:42px}}
+    @media(max-width:600px){.disclosure{height:auto;min-height:34px;padding:8px 12px}.product-nav-inner{padding:14px 16px}.product-title{font-size:22px}.hero{min-height:610px}.hero-copy{padding-top:54px}.hero h1{font-size:46px}.hero p{font-size:18px;padding:0 18px}.hero-phones{transform:translateX(-50%) scale(.46);bottom:-154px;gap:4px}.section h2{font-size:38px}.kicker{font-size:21px}.scroller{grid-auto-columns:86vw}.feature-card{height:470px}.lineup{padding:38px 18px}.lineup-grid{grid-template-columns:1fr}.model-phone{height:320px}.wide-card h3{font-size:36px}.wide-card p{font-size:17px}.orbit{transform:scale(.78)} }
+  </style>
+</head>
+<body>
+  <div class="disclosure">Unofficial concept — not affiliated with or endorsed by Apple Inc.</div>
+  <nav class="global-nav">
+    <div class="nav-inner">
+      <a class="brand" href="#">Concept</a>
+      <div class="nav-links">
+        <a href="#models">Phones</a><a href="#features">Features</a><a href="#camera">Camera</a><a href="#privacy">Privacy</a><a href="#compare">Compare</a><a href="#support">Support</a>
+      </div>
+      <div class="icons"><span>⌕</span><span>◌</span><span class="menu">☰</span></div>
+    </div>
+  </nav>
+
+  <div class="product-nav">
+    <div class="product-nav-inner">
+      <div class="product-title">iPhone Showcase</div>
+      <div class="product-links"><a href="#overview">Overview</a><a href="#compare">Compare</a><a href="#models" class="buy">View models</a></div>
+    </div>
+  </div>
+  <div class="promo">A premium smartphone showcase inspired by minimalist product design. <a href="#features">Learn more ›</a></div>
+
+  <main>
+    <section class="hero" id="overview">
+      <div class="hero-copy">
+        <div class="eyebrow">Pro concept</div>
+        <h1>Built to stand out.</h1>
+        <p>A cinematic product page with a clean, premium feel.</p>
+        <div class="cta-row"><a class="btn primary" href="#models">Explore</a><a class="btn secondary" href="#features">Learn more</a></div>
+      </div>
+      <div class="hero-phones" aria-hidden="true">
+        <div class="hero-stack left">
+          <div class="phone-render back p-back finish-black">
+            <div class="back-panel"></div>
+            <div class="camera-block">
+              <div class="lens l1"></div><div class="lens l2"></div><div class="lens l3"></div><div class="flash"></div><div class="mic"></div>
+            </div>
+            <div class="apple-mark"></div>
+          </div>
+          <div class="phone-render front p-front finish-black">
+            <div class="screen"><div class="island"></div></div>
+          </div>
+        </div>
+        <div class="hero-stack center">
+          <div class="phone-render back pm-back finish-titanium">
+            <div class="back-panel"></div>
+            <div class="camera-block">
+              <div class="lens l1"></div><div class="lens l2"></div><div class="lens l3"></div><div class="flash"></div><div class="mic"></div>
+            </div>
+            <div class="apple-mark"></div>
+          </div>
+          <div class="phone-render front pm-front finish-titanium">
+            <div class="screen"><div class="island"></div></div>
+          </div>
+        </div>
+        <div class="hero-stack right">
+          <div class="phone-render back air-back finish-blue">
+            <div class="back-panel"></div>
+            <div class="camera-block">
+              <div class="lens l1"></div><div class="lens l3"></div><div class="flash"></div>
+            </div>
+            <div class="apple-mark"></div>
+          </div>
+          <div class="phone-render front air-front finish-blue">
+            <div class="screen"><div class="island"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="kicker">Get to know the experience.</div>
+      <h2>Everything feels considered.</h2>
+      <div class="scroller">
+        <article class="feature-card dark">
+          <div class="label">Design</div>
+          <h3>Premium materials. Minimal distractions.</h3>
+          <div class="art">
+            <div class="mini-stack">
+              <div class="phone-render back mini-phone-back finish-titanium">
+                <div class="back-panel"></div>
+                <div class="camera-block">
+                  <div class="lens l1"></div><div class="lens l2"></div><div class="lens l3"></div><div class="flash"></div><div class="mic"></div>
+                </div>
+                <div class="apple-mark"></div>
+              </div>
+              <div class="phone-render front mini-phone-front finish-titanium">
+                <div class="screen"><div class="island"></div></div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="feature-card" id="camera"><div class="label">Camera</div><h3>Big detail. Beautiful light. Effortless framing.</h3><div class="art camera-art"></div></article>
+        <article class="feature-card dark" id="privacy"><div class="label">Privacy</div><h3>Your data stays yours.</h3><div class="art privacy-art">◉</div></article>
+        <article class="feature-card"><div class="label">Connectivity</div><h3>Helpful features, even when you’re off the grid.</h3><div class="art sat-art"></div></article>
+      </div>
+    </section>
+
+    <section class="section slim" id="compare">
+      <div class="kicker">Explore the lineup.</div>
+      <h2>Find your fit.</h2>
+      <div class="lineup">
+        <div class="lineup-grid" id="models">
+
+          <div class="model">
+            <div class="model-phone"><img src="/assets/iphone-17-pro.jpg" alt="iPhone Pro Max"></div><h3>iPhone Pro Max</h3><p>Our largest premium concept.</p><div class="price">From $1,099</div><a href="#" class="btn primary">Details</a>
+          </div>
+          <div class="model">
+            <div class="model-phone"><img src="/assets/iphone-17.jpg" alt="iPhone Pro"></div><h3>iPhone Pro</h3><p>Pro performance in a balanced size.</p><div class="price">From $999</div><a href="#" class="btn primary">Details</a>
+          </div>
+          <div class="model">
+            <div class="model-phone"><img src="/assets/iphone-air.jpg" alt="iPhone Air"></div><h3>iPhone Air</h3><p>Thin, light and beautifully simple.</p><div class="price">From $799</div><a href="#" class="btn primary">Details</a>
+          </div>
+          <div class="model">
+            <div class="model-phone"><img src="/assets/iphone-17-e.jpg" alt="iPhone Core"></div><h3>iPhone Core</h3><p>Essential features with a premium feel.</p><div class="price">From $699</div><a href="#" class="btn primary">Details</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wide-card">
+        <div><div class="label">Designed to last</div><h3>Modern today.<br/>Ready for tomorrow.</h3><p>Large typography, generous whitespace, rounded content cards, sticky navigation and responsive behavior closely follow the visual rhythm of premium product pages without pretending to be an official Apple page.</p><a class="btn secondary" href="#support">See details</a></div>
+        <div class="wide-visual"><div class="orbit"></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="support">
+    <p>This is an independent front-end concept made for demonstration. Apple, iPhone and related marks belong to Apple Inc. No affiliation or endorsement is implied.</p>
+    <div class="footer-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a><a href="#overview">Back to top ↑</a></div>
+  </footer>
+</body>
+</html>
