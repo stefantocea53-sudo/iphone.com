@@ -24,11 +24,9 @@
     .buy{background:var(--blue);color:#fff;padding:8px 16px;border-radius:999px;font-weight:600}
     .promo{background:#fff;text-align:center;padding:16px 20px;font-size:14px}.promo a{color:var(--blue)}
 
-    .hero{min-height:920px;background:#f5f5f7;color:#1d1d1f;position:relative;overflow:hidden;display:flex;align-items:flex-start;justify-content:center;text-align:center}
-    .hero:before{content:"";position:absolute;inset:0;background:none}
-    .hero-copy{padding-top:58px;position:relative;z-index:4}.eyebrow{font-size:22px;font-weight:600}.hero h1{font-size:86px;line-height:.95;letter-spacing:-.055em;margin:8px 0 20px}.hero p{font-size:25px;color:#6e6e73;margin:0 0 28px}.cta-row{display:flex;justify-content:center;gap:12px}.btn{padding:12px 22px;border-radius:999px;border:1px solid var(--blue);font-weight:600}.btn.primary{background:var(--blue);color:#fff}.btn.secondary{color:#2997ff}.btn.secondary:hover{background:#0071e3;color:#fff}
-
-    .hero-image{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:min(1100px,82vw);display:flex;justify-content:center;align-items:flex-end;z-index:1;pointer-events:none}.hero-image img{width:100%;height:auto;display:block;object-fit:contain}
+    .hero{min-height:560px;background:#000;color:#fff;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:72px 20px 64px}
+    .hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 35%,rgba(80,80,90,.22),transparent 30%),linear-gradient(180deg,#000 0%,#050505 100%)}
+    .hero-copy{padding-top:0;position:relative;z-index:4;max-width:900px;margin:0 auto}.eyebrow{font-size:22px;font-weight:600;color:#f5f5f7}.hero h1{font-size:86px;line-height:.95;letter-spacing:-.055em;margin:8px 0 20px}.hero p{font-size:25px;color:#c7c7cc;margin:0 0 28px}.cta-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.btn{padding:12px 22px;border-radius:999px;border:1px solid var(--blue);font-weight:600}.btn.primary{background:var(--blue);color:#fff}.btn.secondary{color:#2997ff}.btn.secondary:hover{background:#0071e3;color:#fff}
     .hero-stack{position:relative;display:flex;align-items:flex-end;justify-content:center}
     .hero-stack.center{z-index:3;transform:translateY(-16px)}
     .hero-stack.left,.hero-stack.right{z-index:2;opacity:.97}
@@ -122,10 +120,7 @@
         <p>A cinematic product page with a clean, premium feel.</p>
         <div class="cta-row"><a class="btn primary" href="#models">Explore</a><a class="btn secondary" href="#models">View models</a></div>
       </div>
-      <div class="hero-image" aria-hidden="true">
-        <img src="/assets/iphoneuri.webp" alt="Hero iPhone visual">
-      </div>
-    </section>
+</section>
     <section class="section slim" id="compare">
       <div class="kicker">Explore the lineup.</div>
       <h2>Find your fit.</h2>
