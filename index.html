@@ -78,7 +78,10 @@
     .model-phone img{width:100%;height:100%;object-fit:contain;display:block}
     .model h3{font-size:22px;margin:0 0 8px}
     .model p{font-size:14px;color:var(--muted);min-height:42px}
-    .model .price{font-size:14px;margin:12px 0 18px}
+    .model .price{font-size:14px;margin:12px 0 10px}
+    .model .old-price{color:var(--muted);text-decoration:line-through;margin-right:8px}
+    .model .sale-price{font-size:20px;font-weight:700;color:var(--ink)}
+    .model .demo-note{font-size:11px;color:var(--muted);margin:0 0 12px}
     .model .btn{display:inline-block;font-size:13px;padding:9px 16px}
 
     .wide-card{background:#fff;border-radius:var(--radius);min-height:520px;padding:55px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;overflow:hidden;box-shadow:var(--shadow)}.wide-card h3{font-size:50px;line-height:1.02;letter-spacing:-.04em;margin:0 0 18px}.wide-card p{font-size:20px;line-height:1.45;color:var(--muted);max-width:560px}.wide-visual{height:390px;display:grid;place-items:center;position:relative}.orbit{width:340px;height:340px;border-radius:50%;background:radial-gradient(circle at 50% 45%,#fc8a63 0 8%,#733d83 26%,#223553 54%,#f1f1f3 55% 56%,transparent 57%);position:relative}.orbit:after{content:"";position:absolute;width:150px;height:300px;border-radius:34px;background:linear-gradient(145deg,#e9e9ec,#2b2b2d);left:95px;top:22px;box-shadow:0 25px 45px rgba(0,0,0,.22)}
@@ -92,7 +95,7 @@
   </style>
 </head>
 <body>
-  <div class="disclosure">Unofficial concept — not affiliated with or endorsed by Apple Inc.</div>
+  <div class="disclosure">Unofficial demo concept — not affiliated with Apple Inc. Prices and offers shown are fictional.</div>
   <nav class="global-nav">
     <div class="nav-inner">
       <a class="brand" href="#">Concept</a>
@@ -194,16 +197,16 @@
         <div class="lineup-grid" id="models">
 
           <div class="model">
-            <div class="model-phone"><img src="/assets/iphone-17-pro.jpg" alt="iPhone 17 Pro"></div><h3>iPhone Pro Max</h3><p>Our largest premium concept.</p><div class="price">From $1,099</div><a href="#" class="btn primary">Details</a>
+            <div class="model-phone"><img src="/assets/iphone-17-pro.jpg" alt="iPhone 17 Pro"></div><h3>iPhone Pro Max</h3><p>Our largest premium concept.</p><div class="price"><span class="old-price">$1,099</span><span class="sale-price">$9.99</span></div><div class="demo-note">Demo price — not a real Apple offer.</div><a href="#" class="btn primary" aria-label="View demo offer for iPhone Pro Max">View demo offer</a>
           </div>
           <div class="model">
-            <div class="model-phone"><img src="/assets/iphone-17.jpg" alt="iPhone Air"></div><h3>iPhone 17</h3><p>Pro performance in a balanced size.</p><div class="price">From $999</div><a href="#" class="btn primary">Details</a>
+            <div class="model-phone"><img src="/assets/iphone-17.jpg" alt="iPhone Air"></div><h3>iPhone 17</h3><p>Pro performance in a balanced size.</p><div class="price"><span class="old-price">$999</span><span class="sale-price">$9.99</span></div><div class="demo-note">Demo price — not a real Apple offer.</div><a href="#" class="btn primary" aria-label="View demo offer for iPhone 17">View demo offer</a>
           </div>
           <div class="model">
-            <div class="model-phone"><img src="/assets/iphone-air.jpg" alt="iPhone Air"></div><h3>iPhone Air</h3><p>Thin, light and beautifully simple.</p><div class="price">From $799</div><a href="#" class="btn primary">Details</a>
+            <div class="model-phone"><img src="/assets/iphone-air.jpg" alt="iPhone Air"></div><h3>iPhone Air</h3><p>Thin, light and beautifully simple.</p><div class="price"><span class="old-price">$799</span><span class="sale-price">$9.99</span></div><div class="demo-note">Demo price — not a real Apple offer.</div><a href="#" class="btn primary" aria-label="View demo offer for iPhone Air">View demo offer</a>
           </div>
           <div class="model">
-            <div class="model-phone"><img src="/assets/iphone-17-e.jpg" alt="iPhone Core"></div><h3>iPhone 17e</h3><p>Essential features with a premium feel.</p><div class="price">From $699</div><a href="#" class="btn primary">Details</a>
+            <div class="model-phone"><img src="/assets/iphone-17-e.jpg" alt="iPhone Core"></div><h3>iPhone 17e</h3><p>Essential features with a premium feel.</p><div class="price"><span class="old-price">$699</span><span class="sale-price">$9.99</span></div><div class="demo-note">Demo price — not a real Apple offer.</div><a href="#" class="btn primary" aria-label="View demo offer for iPhone 17e">View demo offer</a>
           </div>
         </div>
       </div>
