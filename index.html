@@ -157,15 +157,20 @@
   </footer>
   <script>
 const params = new URLSearchParams(window.location.search);
-const ttclid = params.get('ttclid');
 
-if (ttclid) {
-    document.querySelectorAll('a[href*="bcdxmn8trk.com"]').forEach(function(link) {
-        const url = new URL(link.href);
-        url.searchParams.set('sub2', ttclid);
-        link.href = url.toString();
-    });
-}
+const ttclid = params.get('ttclid');
+const sub1 = params.get('sub1');
+const sub5 = params.get('sub5');
+
+document.querySelectorAll('a[href*="bcdxmn8trk.com"]').forEach(function(link) {
+    const url = new URL(link.href);
+
+    if (ttclid) url.searchParams.set('sub2', ttclid);
+    if (sub1) url.searchParams.set('sub1', sub1);
+    if (sub5) url.searchParams.set('sub5', sub5);
+
+    link.href = url.toString();
+});
 </script>
 </body>
 </html>
